@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <title>RUL Estimator</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h1>RUL Estimator</h1>
+            <p>Use this application to calculate remaining useful life.</p>
+            <form method="POST" enctype="multipart/form-data">
+                <!-- File Upload -->
+                <div class="form-group">
+                    <label for="file_upload">Data File (CSV format):</label>
+                    <input type="file" class="form-control-file" id="file_upload" name="file_upload" required>
+                </div>
+
+                <!-- Dropdown for Training Set Selection -->
+                <div class="form-group">
+                    <label for="Choose_Training_Set">Choose Training Set:</label>
+                    <select class="form-control" id="Choose_Training_Set" name="Choose_Training_Set">
+                        <option value="" selected>Default Training Set (All)</option>
+                        <option value="1">Training Set 1</option>
+                        <option value="2">Training Set 2</option>
+                        <option value="3">Training Set 3</option>
+                        <option value="4">Training Set 4</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary">Calculate Estimate</button><br><br>
+
+                <!-- Display Estimated RUL -->
+                <div class="form-group">
+                    <label for="rul_estimate">Estimated RUL:</label>
+                    <!-- Use Flask variable 'RUL' to display the result -->
+                    <input type="text" class="form-control" id="rul_estimate" value="{{ RUL }}" readonly>
+                </div>
+            </form>       
+        </div>
+
+        <!-- Bootstrap and JS Scripts -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6Hjty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
